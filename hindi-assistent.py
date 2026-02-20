@@ -40,44 +40,60 @@ def execute_command(cmd):
     now = datetime.datetime.now()
 
     if cmd == "नमस्ते":
+        print("Assistant: नमस्ते! मैं आपकी मदद के लिए हूँ।")
         last_response = "Namaste! Main aapki madad ke liye hoon"
     elif cmd == "समय":
+        print(f"Assistant: समय है {now.strftime('%H:%M')}")
         last_response = f"Samay hai {now.strftime('%H:%M')}"
     elif cmd == "तारीख":
-        last_response = f"Aaj ki tarikh {now.strftime('%d %B %Y')}"
+        print(f"Assistant: तारीख {now.strftime('%d %B %Y')}")
+        last_response = f"tarikh {now.strftime('%d %B %Y')}"
     elif cmd == "नाम":
+        print("Assistant: मेरा नाम हिंदी असिस्टेंट है।")
         last_response = "Mera naam Hindi Assistant hai"
     elif cmd == "मौसम":
-        last_response = "Aaj ka mausam normal hai"
+        print("Assistant: मौसम सामान्य है।")
+        last_response = "mausam normal hai"
     elif cmd == "धन्यवाद":
+        print("Assistant: आपका स्वागत है।")
         last_response = "Aapka swagat hai"
     elif cmd == "मदद":
-        last_response = "Aap samay, tarikh, mausam, naam, joke pooch sakte hain"
+        print("Assistant: समय, तारीख, मौसम, नाम या चुटकुला पूछ सकते हैं।")
+        last_response = "Samay, tarikh, mausam, naam, joke pooch sakte hain"
     elif cmd == "चुटकुला":
-        last_response = "Programmer ne chhutti kyun li? Cache clear karna tha!"
+        print("Assistant: प्रोग्रामर छुट्टी पर था, क्योंकि कैश क्लियर कर रहा था!")
+        last_response = "Programmer holiday pe tha, kyonki Cache clear kar rha tha!"
     elif cmd == "कैसे हो":
+        print("Assistant: मैं बिल्कुल ठीक हूँ।")
         last_response = "Main bilkul theek hoon"
     elif cmd == "फिर बोलो":
+        print("Assistant:", last_response if last_response else "दोहराने के लिए कुछ नहीं है।")
         last_response = last_response if last_response else "Kuch dohrane ko nahi hai"
     elif cmd == "दिन":
-        last_response = f"Aaj {now.strftime('%A')} hai"
+        print(f"Assistant: {now.strftime('%A')} है।")
+        last_response = f"{now.strftime('%A')} hai"
     elif cmd == "साल":
+        print(f"Assistant: साल {now.strftime('%Y')} है।")
         last_response = f"Saal {now.strftime('%Y')}"
     elif cmd == "किसने बनाया":
+        print("Assistant: मुझे आपके प्रोजेक्ट के लिए बनाया गया है।")
         last_response = "Mujhe aapke project ke liye banaya gaya hai"
     elif cmd == "तुम कौन":
+        print("Assistant: मैं एक ऑफलाइन हिंदी वॉयस असिस्टेंट हूँ।")
         last_response = "Main ek offline Hindi voice assistant hoon"
     elif cmd in ["अलविदा", "बंद"]:
+        print("Assistant: अलविदा! फिर मिलेंगे।")
         last_response = "Alvida! Phir milenge"
     else:
-        last_response = "Maaf kijiye, main samajh nahi paayi"
+        print("Assistant: माफ़ कीजिए, मैं समझ नहीं पाया।")
+        last_response = "Maaf kijiye, main samajh nahi paaya"
 
     speak(last_response)
     return cmd in ["अलविदा", "बंद"]
 
 # ---------------- LISTEN FUNCTION ----------------
 def listen():
-    print("\n🎤 Bol Hindi mein (microphone)...")
+    print("\n 🎤 कृपया हिंदी में बोलिए...")
     with sd.RawInputStream(samplerate=SAMPLE_RATE, blocksize=8000, dtype='int16', channels=1) as stream:
         while True:
             data, _ = stream.read(4000)
@@ -90,6 +106,7 @@ def listen():
                     return text
 
 # ---------------- MAIN LOOP ----------------
+print("Assistant: हिंदी वॉइस असिस्टेंट शुरू हो गया है।")
 speak("Hindi voice assistant shuru ho gaya hai")
 
 while True:
