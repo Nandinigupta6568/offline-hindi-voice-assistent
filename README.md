@@ -1,11 +1,11 @@
 # offline-hindi-voice-assistent
 
-Hindi Voice Assistant 🤖🗣️
+Hindi Voice Assistant 
 
 A Python-based voice assistant that understands and responds in Hindi. It can perform tasks like opening apps, searching online, telling time, and more. Perfect for learning speech recognition and text-to-speech in Hindi.
 
 
-Features ✨
+Features 
 
 Recognizes Hindi voice commands.
 Speaks responses in Hindi.
@@ -16,7 +16,7 @@ Telling date and time
 Playing music
 
 
-Dependencies 📦
+Dependencies 
 
 Python 3.11+
 speech_recognition
@@ -24,7 +24,7 @@ pyttsx3 / eSpeak NG
 pywhatkit (optional)
 
 
-Folder Structure 📂
+Folder Structure 
 offline-hindi-voice-assistant/
 │
 ├── vosk-model-small-hi-0.22
